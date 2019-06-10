@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ siteName }}</title>
+
+    {{ craft.twigpack.includeCssModule("app.css", true) }}
+
+    {% set jsCraft = {
+        baseUrl: alias('@web'),
+        csrfTokenName: craft.app.config.general.csrfTokenName,
+        csrfToken: craft.app.request.csrfToken
+    } %}
+    <script type="text/javascript">
+      window.Craft = {{ jsCraft|json_encode|raw }}
+    </script>
+</head>
+
+<body class="bg-gray-700">
+<div id="app">
+
+    {% block content %}{% endblock %}
+
+</div>
+
+{{ craft.twigpack.includeSafariNomoduleFix() }}
+{{ craft.twigpack.includeJsModule("app.js", true) }}
+{{ craft.twigpack.includeJsModule("chunk-vendors.js", true) }}
+
+</body>
+</html>

@@ -1,40 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ siteName }}</title>
+{% extends 'layouts/_base.twig' %}
 
-  {{ craft.twigpack.includeCssModule("app.css", true) }}
 
-  {% set jsCraft = {
-    baseUrl: alias('@web'),
-    csrfTokenName: craft.app.config.general.csrfTokenName,
-    csrfToken: craft.app.config.general.csrfToken
-  } %}
-  <script type="text/javascript">
-    window.Craft = {{ jsCraft|json_encode|raw }}
-    console.log(window.Craft);
-  </script>
-</head>
 
-<body class="bg-gray-700">
-  <div id="app">
-    
+{% block content %}
+
     {% set info = {
       craftVersion: craft.app.getVersion(),
       environment: getenv('ENVIRONMENT')
     } %}
-    
-    <hello-world :info="{{ info|json_encode }}">
-      {{ getenv('DB_DATABASE') }}
-    </hello-world>
-  </div>
 
-  {{ craft.twigpack.includeSafariNomoduleFix() }}
-  {{ craft.twigpack.includeJsModule("app.js", true) }}
-  {{ craft.twigpack.includeJsModule("chunk-vendors.js", true) }}
+  <hello-world :info="{{ info|json_encode }}">
+    {{ getenv('DB_DATABASE') }}
+  </hello-world>
 
-</body>
-</html>
+{% endblock %}
