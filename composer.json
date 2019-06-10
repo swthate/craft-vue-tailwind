@@ -1,6 +1,6 @@
 {
-  "name": "chasegiunta/craft-vue-tailwind",
-  "description": "Craft CMS + Vue.js + TailwindCSS Boilerplate",
+  "name": "swthate/craft-workbench",
+  "description": "Craft CMS + Vue.js + TailwindCSS Boilerplate + Some Personal Opinions",
   "keywords": [
     "craft",
     "cms",
@@ -16,8 +16,8 @@
   "homepage": "https://craftcms.com/",
   "type": "project",
   "support": {
-    "email": "me@chasegiunta.com",
-    "issues": "https://github.com/chasegiunta/craft-vue-tailwind/issues"
+    "email": "steven@steventhate.dev",
+    "issues": "https://github.com/swthate/craft-workbench/issues"
   },
   "require": {
     "craftcms/cms": "^3.0.0",
@@ -26,13 +26,13 @@
   },
   "autoload": {
     "psr-4": {
-      "modules\\": "modules/"
+      "modules\\sitemodule": "modules/site-module/src"
     }
   },
   "config": {
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.2"
     }
   },
   "scripts": {

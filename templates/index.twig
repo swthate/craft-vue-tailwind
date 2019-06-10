@@ -7,6 +7,16 @@
   <title>{{ siteName }}</title>
 
   {{ craft.twigpack.includeCssModule("app.css", true) }}
+
+  {% set jsCraft = {
+    baseUrl: alias('@web'),
+    csrfTokenName: craft.app.config.general.csrfTokenName,
+    csrfToken: craft.app.config.general.csrfToken
+  } %}
+  <script type="text/javascript">
+    window.Craft = {{ jsCraft|json_encode|raw }}
+    console.log(window.Craft);
+  </script>
 </head>
 
 <body class="bg-gray-700">

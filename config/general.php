@@ -25,13 +25,18 @@ return [
 
         // Whether to save the project config out to config/project.yaml
         // (see https://docs.craftcms.com/v3/project-config.html)
-        'useProjectConfigFile' => false,
+        'useProjectConfigFile' => true,
     ],
 
     // Dev environment settings
     'dev' => [
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
         'devMode' => true,
+        'siteUrl' => getenv('DEFAULT_SITE_URL'),
+        'allowUpdates' => true,
+        'backupOnUpdate' => true,
+        'enableTemplateCaching' => false,
+        'isSystemLive' => true,
     ],
 
     // Staging environment settings
@@ -43,6 +48,12 @@ return [
     // Production environment settings
     'production' => [
         // Set this to `false` to prevent administrative changes from being made on production
-        'allowAdminChanges' => true,
+        'allowAdminChanges' => false,
+        'siteUrl' => getenv('DEFAULT_SITE_URL'),
+        'allowUpdates' => false,
+        'backupOnUpdate' => false,
+        'devMode' => false,
+        'enableTemplateCaching' => true,
+        'isSystemLive' => true,
     ],
 ];

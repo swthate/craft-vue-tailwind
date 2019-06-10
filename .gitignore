@@ -1,16 +1,25 @@
 /.env
 /.idea
 /vendor
+/storage/backups
+/storage/composer-backups
+/storage/config-backups
+/storage/logs
+/storage/runtime
+/storage/userphotos
 .DS_Store
 
 /config/license.key
 
-node_modules/
+/node_modules
 /dist
+/web/cpresources
+/web/uploads
 
 # local env files
 .env.local
 .env.*.local
+.env.sh
 
 # Log files
 npm-debug.log*
